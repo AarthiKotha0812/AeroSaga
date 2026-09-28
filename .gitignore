@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+node_modules/
+target/
+.DS_Store
+.env
+dist/
+build/
+=======
 # Logs
 logs
 *.log
@@ -22,3 +30,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+>>>>>>> origin/main
