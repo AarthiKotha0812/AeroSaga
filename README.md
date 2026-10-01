@@ -73,3 +73,10 @@ frontend/
 ├── package.json
 └── README.md
 >>>>>>> origin/main
+
+## Java Development & Contributors
+
+- Kotha Aarthi
+- Anushka Patil
+- Ramappa Yaragudri
+- Siddhesh Dinesh Bhuvad
