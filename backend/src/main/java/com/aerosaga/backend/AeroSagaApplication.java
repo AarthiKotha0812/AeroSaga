@@ -1,17 +1,18 @@
+
 package com.aerosaga.backend;
 
+import com.aerosaga.backend.temporal.DroneActivityImpl;
+import com.aerosaga.backend.temporal.DroneWorkflowImpl;
+
 import io.temporal.client.WorkflowClient;
-import io.temporal.client.WorkflowOptions;
 import io.temporal.serviceclient.WorkflowServiceStubs;
+import io.temporal.serviceclient.WorkflowServiceStubsOptions;
 import io.temporal.worker.Worker;
 import io.temporal.worker.WorkerFactory;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import javax.annotation.PostConstruct;
-
-import com.aerosaga.backend.temporal.DroneWorkflowImpl;
-import com.aerosaga.backend.temporal.DroneActivityImpl;
 
 @SpringBootApplication
 public class AeroSagaApplication {
@@ -22,37 +23,63 @@ public class AeroSagaApplication {
         SpringApplication.run(AeroSagaApplication.class, args);
     }
 
+    // Connect to the Temporal Server running in Docker
     @Bean
     public WorkflowServiceStubs workflowServiceStubs() {
-        return WorkflowServiceStubs.newLocalServiceStubs();
+        return WorkflowServiceStubs.newInstance(
+                WorkflowServiceStubsOptions.newBuilder()
+                        .setTarget("localhost:7233")
+                        .build()
+        );
     }
 
+    // Create the Temporal client
     @Bean
-    public WorkflowClient workflowClient(WorkflowServiceStubs workflowServiceStubs) {
+    public WorkflowClient workflowClient(
+            WorkflowServiceStubs workflowServiceStubs) {
         return WorkflowClient.newInstance(workflowServiceStubs);
     }
 
+    // Create the worker factory
     @Bean
     public WorkerFactory workerFactory(WorkflowClient workflowClient) {
         return WorkerFactory.newInstance(workflowClient);
     }
 
+    // Create the drone activity implementation
     @Bean
     public DroneActivityImpl droneActivity() {
         return new DroneActivityImpl();
     }
 
-    @PostConstruct
-    public void startWorker() {
-        WorkflowServiceStubs service = workflowServiceStubs();
-        WorkflowClient client = workflowClient(service);
-        WorkerFactory factory = workerFactory(client);
-        
-        Worker worker = factory.newWorker(TASK_QUEUE);
-        worker.registerWorkflowImplementationTypes(DroneWorkflowImpl.class);
-        worker.registerActivitiesImplementations(droneActivity());
-        
-        factory.start();
-        System.out.println("Temporal Worker started on task queue: " + TASK_QUEUE);
+    // Register and start the worker
+    @Bean
+    public Worker droneWorker(
+            WorkerFactory workerFactory,
+            DroneActivityImpl droneActivity) {
+
+        Worker worker = workerFactory.newWorker(TASK_QUEUE);
+
+        worker.registerWorkflowImplementationTypes(
+                DroneWorkflowImpl.class
+        );
+
+        worker.registerActivitiesImplementations(droneActivity);
+
+        return worker;
+    }
+
+    // Start the worker factory after Spring creates the beans
+    @Bean
+    public WorkerFactoryStarter workerFactoryStarter(
+            WorkerFactory workerFactory) {
+        workerFactory.start();
+        System.out.println(
+                "Temporal Worker started on task queue: " + TASK_QUEUE
+        );
+        return new WorkerFactoryStarter();
+    }
+
+    public static class WorkerFactoryStarter {
     }
 }
