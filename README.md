@@ -6,9 +6,6 @@
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
 [![CesiumJS](https://img.shields.io/badge/CesiumJS-60B5CC?style=for-the-badge&logo=cesium&logoColor=white)](#)
-[![Temporal](https://img.shields.io/badge/Temporal-141414?style=for-the-badge&logo=temporal&logoColor=white)](#)
-[![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](#)
-
 *AeroSaga is an advanced autonomous mission control system built to manage and monitor a massive fleet of delivery drones via a highly immersive 3D browser dashboard.*
 
 </div>
