@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react'; // Week 2
 import { Viewer, CameraFlyTo } from 'resium';
 import { Cartesian3 } from 'cesium';
 import DroneMarker from './DroneMarker';
