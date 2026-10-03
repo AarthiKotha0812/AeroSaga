@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'; // Week 2
 import { Cartesian3 } from 'cesium';
 
 export function useTelemetry(wsUrl) {
