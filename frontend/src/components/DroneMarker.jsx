@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Week 2
 import { Entity, PointGraphics, LabelGraphics } from 'resium';
 import { Cartesian3, Color, Cartesian2, NearFarScalar } from 'cesium';
 
