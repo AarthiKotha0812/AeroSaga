@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Week 2
 import CesiumMap from './components/CesiumMap';
 import TelemetryPanel from './components/TelemetryPanel';
 import { useTelemetry } from './hooks/useTelemetry';
