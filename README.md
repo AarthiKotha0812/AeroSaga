@@ -72,6 +72,7 @@ Laid the essential groundwork for the project, setting up the environments and r
 
 ---
 
+<<<<<<< HEAD
 ## ⚙️ How to Run the Frontend Dashboard
 
 1. **Navigate to the frontend directory:**
@@ -92,3 +93,4 @@ Laid the essential groundwork for the project, setting up the environments and r
 <div align="center">
   <i>Built with ❤️ for AeroSaga</i>
 </div>
+
