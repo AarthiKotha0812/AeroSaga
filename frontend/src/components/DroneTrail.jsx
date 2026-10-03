@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Week 2
 import { Entity, PolylineGraphics } from 'resium';
 import { Color } from 'cesium';
 
