@@ -13,7 +13,10 @@ import javax.annotation.PostConstruct;
 import com.aerosaga.backend.temporal.DroneWorkflowImpl;
 import com.aerosaga.backend.temporal.DroneActivityImpl;
 
+import org.springframework.scheduling.annotation.EnableScheduling;
+
 @SpringBootApplication
+@EnableScheduling
 public class AeroSagaApplication {
 
     public static final String TASK_QUEUE = "DRONE_TASK_QUEUE";
