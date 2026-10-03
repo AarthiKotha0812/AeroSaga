@@ -36,8 +36,19 @@ public class DroneActivityImpl implements DroneActivity {
 
     @Override
     public void deliverPackage(String droneId) {
+
         logger.info("{} is delivering the package", droneId);
+
         simulateDelay();
+
+        if ("drone-fail".equals(droneId)) {
+            logger.error("{} delivery failed!", droneId);
+
+            throw new RuntimeException(
+                    "Simulated delivery failure for " + droneId
+            );
+        }
+
         logger.info("{} package delivered successfully", droneId);
     }
 
