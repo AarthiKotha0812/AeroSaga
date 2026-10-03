@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Week 2
 import './TelemetryPanel.css';
 
 export default function TelemetryPanel({ telemetry, status, lastUpdateTime }) {
