@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+/* Week 2 */
+#root, .app-container {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+}
+=======
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -96,3 +114,4 @@ html, body, #root {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: rgba(56, 139, 253, 0.25); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(56, 139, 253, 0.45); }
+>>>>>>> origin/main
