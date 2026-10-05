@@ -1,129 +1,103 @@
 <div align="center">
-  
-# 🚁 AeroSaga
+
+# AeroSaga
 
 **Autonomous Drone Mission Control & Live 3D Telemetry**
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](#)
 [![CesiumJS](https://img.shields.io/badge/CesiumJS-60B5CC?style=for-the-badge&logo=cesium&logoColor=white)](#)
-*AeroSaga is an advanced autonomous mission control system built to manage and monitor a massive fleet of delivery drones via a highly immersive 3D browser dashboard.*
+
+An interactive React and CesiumJS dashboard for visualizing and monitoring a simulated drone fleet on a 3D globe.
 
 </div>
 
 ---
 
-## 👥 Java Development & Contributors
+## Contributors
 
-This system is brought to life by an incredible engineering team:
-*   🚀 **Kotha Aarthi**
-*   🚀 **Anushka Patil**
-*   🚀 **Ramappa Yaragudri**
-*   🚀 **Siddhesh Dinesh Bhuvad**
+- Kotha Aarthi
+- Anushka Patil
+- Ramappa Yaragudri
+- Siddhesh Dinesh Bhuvad
 
----
+## Frontend Contribution
 
-## 👨‍💻 My Contribution: Frontend Engineering
+Frontend work covers the React dashboard, CesiumJS globe, aircraft visualization, and responsive mission-control interface.
 
-As the **Lead Frontend Developer**, my primary focus is designing, building, and optimizing the interactive 3D command center. The goal is to provide a seamless, premium, and highly responsive user experience using modern web technologies.
-
-### 🌟 Core Responsibilities
-- **React Dashboard:** Architecting a scalable and maintainable UI framework.
-- **3D Earth Visualization:** Integrating **CesiumJS** to render a highly accurate, interactive 3D globe.
-- **Live Telemetry Streams:** Consuming high-frequency **WebSocket** data to paint real-time drone coordinates across the map.
-- **Premium UI/UX:** Designing a sleek, glassmorphism-inspired interface with fluid animations and responsive layouts.
-
----
-
-## 🚀 Weekly Development Progress (Step-by-Step)
+## Development Progress
 
 <details open>
-<summary><b>🟢 Week 2: Live Telemetry & Real-Time Drone Tracking (Completed)</b></summary>
-<br/>
-Successfully bridged the gap between the backend simulation and the frontend map, bringing the 3D globe to life with moving drones and glowing flight trails.
+<summary><strong>Week 1: Foundation & 3D Scaffolding (Complete)</strong></summary>
 
-**My Frontend Tasks Completed:**
-- [x] **WebSocket Integration:** Engineered the `useTelemetry.js` hook to establish a persistent WebSocket connection, parsing live GPS streams dynamically.
-- [x] **Real-Time 3D Rendering:** Mapped incoming Latitude, Longitude, and Altitude data directly to CesiumJS `<Entity>` markers, creating smooth real-time movement.
-- [x] **Glowing Flight Trails:** Developed a historical tracking array to render vibrant, translucent blue `<PolylineGraphics>` trails tracking behind the active drones.
-- [x] **Glassmorphism HUD:** Designed a premium, animated UI panel (`TelemetryPanel.jsx`) displaying live drone metrics (Speed, Heading) and a pulsing connection status indicator.
+- [x] Set up the React and Vite frontend.
+- [x] Integrate CesiumJS through Resium.
+- [x] Establish the interactive globe and drone visualization foundation.
 </details>
 
 <details open>
-<summary><b>🟢 Week 1: Foundation & 3D Scaffolding (Completed)</b></summary>
-<br/>
-Laid the essential groundwork for the project, setting up the environments and rendering the base 3D globe.
+<summary><strong>Week 2: Telemetry Dashboard (Frontend Complete)</strong></summary>
 
-**My Frontend Tasks Completed:**
-- [x] **Vite & React Setup:** Initialized a lightning-fast modern web application.
-- [x] **CesiumJS Engine:** Configured `resium` to project the high-fidelity 3D globe.
-- [x] **Static Drone Mapping:** Implemented the initial `Cartesian3` coordinates and 3D drone tags to verify the UI placement.
+- [x] Build a telemetry panel for fleet counts, aircraft state, mission, and performance information.
+- [x] Show selected drone position, altitude, speed, heading, and battery.
+- [x] Add local simulated telemetry and flight history to drive the frontend demo.
+- [ ] Connect the dashboard to live WebSocket telemetry and Temporal mission workflows.
+
+The current dashboard uses local simulation. The `useTelemetry.js` hook is an integration point; live backend telemetry is not connected to the running demo.
 </details>
 
----
+<details open>
+<summary><strong>Mid-week: 50+ Drone Visual Performance Check (Complete)</strong></summary>
 
-## 🛠️ Frontend Tech Stack
+- [x] Simulate 50 to 100 drones on deterministic routes around the San Francisco Bay Area.
+- [x] Render moving markers and sampled flight trails on the CesiumJS globe.
+- [x] Select aircraft from the globe or roster and inspect its telemetry.
+- [x] Show active, idle, and offline counts, active missions, and average speed.
+- [x] Add pause/resume and fleet-size controls.
+- [x] Display FPS and simulator update rate.
+- [x] Verify the 100-drone roster, selection behavior, and responsive layout in the browser.
+</details>
+
+### Overall Progress
+
+| Area | Status |
+| :--- | :--- |
+| React/Vite and CesiumJS frontend foundation | Complete |
+| 50–100 drone local simulation and globe visualization | Complete |
+| Fleet dashboard, drone selection, and performance monitor | Complete |
+| Live WebSocket telemetry and Temporal workflow integration | Pending |
+
+The current milestone is a working frontend demonstration. Backend telemetry and Temporal mission orchestration are not yet connected to the dashboard.
+
+## Frontend Technology
 
 | Technology | Purpose |
 | :--- | :--- |
-| **React (Vite)** | Lightning-fast component rendering and state management |
-| **CesiumJS (Resium)** | High-performance 3D geospatial visualization |
-| **WebSockets** | Low-latency, bi-directional live telemetry streaming |
-| **Vanilla CSS** | Custom styling with glassmorphism and keyframe animations |
+| React and Vite | UI components and local development server |
+| CesiumJS and Resium | 3D globe and geospatial entities |
+| JavaScript | Fleet simulation and dashboard behavior |
+| CSS | Mission-control layout and responsive styling |
 
----
+## Run the Frontend Dashboard
 
-<<<<<<< HEAD
-## ⚙️ How to Run the Frontend Dashboard
+Requirements: Node.js and npm.
 
-1. **Navigate to the frontend directory:**
-   ```bash
-   cd frontend
-   ```
-2. **Install all necessary Node dependencies:**
-   ```bash
-   npm install
-   ```
-3. **Spin up the Vite development server:**
-   ```bash
-   npm run dev
-   ```
-4. Open your browser to the local URL (usually `http://localhost:5173`) to view the 3D globe and static drone markers!
-=======
-### Temporal.io Autonomous Drone Mission Control
+```powershell
+cd frontend
+npm install
+npm run dev
+```
 
-AeroSaga is an autonomous drone mission control system that manages long-running drone missions and displays live drone information through a 3D web dashboard.
+Open the local URL printed by Vite, usually `http://localhost:5173`.
 
-## 👨‍💻 My Contribution
+Create a production build with:
 
-I am responsible for the **Frontend Development** of the project.
+```powershell
+npm run build
+```
 
-### Frontend Responsibilities
-- Building the dashboard using **React**
-- Integrating **CesiumJS** for 3D Earth visualization
+## Visual Performance Check
+
+Use the fleet-size slider to test 50 through 100 drones. Verify that markers move, trails update, selecting a roster item updates the detail panel, and pause/resume works. FPS varies by browser and hardware, so evaluate it on the target demo machine.
+
+The Cesium viewer currently uses the default ion access token. Configure an application token for deployments that require Cesium ion assets or services.
 - Displaying live drone locations
-- Showing drone mission and workflow status
-- Integrating frontend with backend through **WebSockets**
-- Designing a responsive and user-friendly command center
-
-## 🛠️ Frontend Tech Stack
-
-- React
-- CesiumJS
-- JavaScript
-- WebSockets
-- HTML
-- CSS
-
-## 📁 Frontend Structure
-
-```text
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── services/
-│   └── App.jsx
-├── public/
-├── package.json
-└── README.md
->>>>>>> origin/main
