@@ -7,13 +7,20 @@ import io.temporal.activity.ActivityMethod;
 @ActivityInterface
 public interface DroneActivity {
 
+
     @ActivityMethod
     int checkBattery(String droneId);
+
 
     @ActivityMethod
     void takeoff(String droneId);
 
     @ActivityMethod
+    void navigate(String droneId);
+
+    @ActivityMethod
+    void dropPackage(String droneId);
+
     void travelToDestination(String droneId);
 
     @ActivityMethod
