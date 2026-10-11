@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +54,31 @@ public class MissionController {
         response.put("droneId", droneId);
         response.put("workflowId", workflowId);
         response.put("status", "STARTED");
+
+        return response;
+    }
+
+    @GetMapping("/{workflowId}/status")
+    public Map<String, String> getMissionStatus(
+            @PathVariable String workflowId) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("workflowId", workflowId);
+
+        try {
+            DroneWorkflow workflow =
+                    workflowClient.newWorkflowStub(
+                            DroneWorkflow.class,
+                            workflowId
+                    );
+
+            response.put("status", workflow.getStatus());
+
+        } catch (Exception e) {
+            response.put("status", "STATUS_UNAVAILABLE");
+            response.put("message",
+                    "Unable to retrieve mission status from Temporal");
+        }
 
         return response;
     }
