@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import CesiumMap from './components/CesiumMap';
 import TelemetryPanel from './components/TelemetryPanel';
+import WorkflowPanel from './components/WorkflowPanel';
 import { useFleetSimulation } from './hooks/useFleetSimulation';
 import './App.css';
+import './animations.css';
 
 export default function App() {
   const {
@@ -25,6 +27,11 @@ export default function App() {
         trails={trails}
         selectedDroneId={selectedDroneId}
         onSelectDrone={setSelectedDroneId}
+      />
+      <WorkflowPanel
+        selectedDrone={selectedDrone}
+        selectedDroneId={selectedDroneId}
+        isSimulated={true}
       />
       <TelemetryPanel
         telemetry={telemetry}

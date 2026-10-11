@@ -20,6 +20,7 @@ function createDrone(index, elapsed = 0) {
     status,
     mission: status === 'ACTIVE' ? `DELIVERY-${String(missionNumber).padStart(2, '0')}` : 'STANDBY',
     battery: Math.max(24, 98 - ((index * 7 + Math.floor(elapsed / 12)) % 72)),
+    workflowStepIndex: status === 'ACTIVE' ? Math.floor((elapsed * 0.4 + index) % 5) : 0,
   };
 }
 

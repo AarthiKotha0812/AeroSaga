@@ -142,6 +142,19 @@ export default function TelemetryPanel({
           ))}
         </div>
       </section>
+
+      <section className="contributors-widget" aria-label="Project Contributors">
+        <div className="section-heading">
+          <h2>👥 Project Team</h2>
+          <span className="team-count">4 MEMBERS</span>
+        </div>
+        <div className="contributors-tags">
+          <span className="contributor-tag"><span className="c-dot" />Kotha Aarthi</span>
+          <span className="contributor-tag"><span className="c-dot" />Anushka Patil</span>
+          <span className="contributor-tag"><span className="c-dot" />Ramappa Yaragudri</span>
+          <span className="contributor-tag"><span className="c-dot" />Siddhesh Dinesh Bhuvad</span>
+        </div>
+      </section>
     </aside>
   );
 }
